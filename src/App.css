@@ -619,11 +619,259 @@
   margin: 0;
 }
 
+/* Beginner Guide Section */
+.beginner-guide {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  border: 1px solid #bae6fd;
+}
+
+.beginner-guide h3 {
+  margin: 0 0 1rem 0;
+  color: #0c4a6e;
+  font-size: 1.5rem;
+}
+
+.guide-content p {
+  color: #1e40af;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.key-benefits {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.key-benefits h4 {
+  margin: 0 0 1rem 0;
+  color: #0c4a6e;
+}
+
+.key-benefits ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #1e40af;
+}
+
+.key-benefits li {
+  margin: 0.5rem 0;
+}
+
+.diagram-toggle {
+  text-align: center;
+}
+
+.diagram-button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.diagram-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Concentric Diagram */
+.architecture-diagram-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.architecture-diagram-section h3 {
+  text-align: center;
+  margin: 0 0 2rem 0;
+  color: #1e293b;
+}
+
+.concentric-diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.diagram-center {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.domain-circle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8f5e8, #d4edda);
+  border: 3px solid #28a745;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 4;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.domain-circle span {
+  font-weight: bold;
+  color: #155724;
+  font-size: 1rem;
+}
+
+.domain-circle small {
+  font-size: 0.7rem;
+  color: #155724;
+  opacity: 0.8;
+}
+
+.application-ring {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+  border: 3px solid #9c27b0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 3;
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+}
+
+.application-ring span {
+  font-weight: bold;
+  color: #4a148c;
+  font-size: 0.9rem;
+  margin-top: 25px;
+}
+
+.application-ring small {
+  font-size: 0.65rem;
+  color: #4a148c;
+  opacity: 0.8;
+}
+
+.interface-ring {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 3px solid #2196f3;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.interface-section {
+  position: absolute;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #0d47a1;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+.interface-section:nth-child(1) {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.interface-section:nth-child(2) {
+  bottom: 10px;
+  left: 20px;
+}
+
+.interface-section:nth-child(3) {
+  bottom: 10px;
+  right: 20px;
+}
+
+.outer-ring {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 3px solid #ff9800;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer-section {
+  position: absolute;
+  background: linear-gradient(135deg, #fff3e0, #ffcc02);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #e65100;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
+}
+
+.outer-section:nth-child(1) {
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.outer-section:nth-child(2) {
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.outer-section:nth-child(3) {
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.diagram-note {
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
 .architecture-diagram {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
+}
+
+.architecture-diagram h3 {
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
 }
 
 .architecture-layer {
@@ -670,25 +918,90 @@
 }
 
 .layer-description {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
   color: #4b5563;
   line-height: 1.6;
 }
 
+.layer-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.layer-responsibility,
+.layer-dependencies {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.layer-responsibility h4,
+.layer-dependencies h4 {
+  margin: 0 0 0.5rem 0;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.layer-responsibility p,
+.layer-dependencies p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.layer-components {
+  margin-bottom: 1.5rem;
+}
+
 .layer-components h4 {
+  margin: 0 0 1rem 0;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.components-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.component-card {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.85rem;
+  color: #4b5563;
+  text-align: center;
+}
+
+.implementation-examples h4 {
   margin: 0 0 0.5rem 0;
   color: #374151;
   font-size: 1rem;
 }
 
-.layer-components ul {
+.implementation-examples ul {
   margin: 0;
   padding-left: 1.5rem;
   color: #6b7280;
 }
 
-.layer-components li {
+.implementation-examples li {
   margin: 0.25rem 0;
+}
+
+.implementation-examples code {
+  background: #f1f5f9;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 0.8rem;
+  color: #667eea;
 }
 
 .architecture-principles {
@@ -696,6 +1009,7 @@
   padding: 2rem;
   border-radius: 15px;
   border: 1px solid #bae6fd;
+  margin-bottom: 2rem;
 }
 
 .architecture-principles h3 {
@@ -724,6 +1038,72 @@
   display: block;
   margin-bottom: 0.5rem;
   font-size: 1rem;
+}
+
+.principle p {
+  margin: 0 0 1rem 0;
+  color: #1e40af;
+  line-height: 1.5;
+}
+
+.principle-example {
+  background: #f0f9ff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border-left: 4px solid #3b82f6;
+  font-size: 0.85rem;
+  color: #1e40af;
+}
+
+.principle-example strong {
+  color: #1d4ed8;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Learning Resources */
+.learning-resources {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.learning-resources h3 {
+  text-align: center;
+  margin: 0 0 2rem 0;
+  color: #1e293b;
+  font-size: 1.5rem;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.resource-card {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.resource-card h4 {
+  margin: 0 0 1rem 0;
+  color: #1e293b;
+}
+
+.resource-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #4b5563;
+}
+
+.resource-card li {
+  margin: 0.5rem 0;
+  line-height: 1.4;
 }
 
 /* Footer */
@@ -800,5 +1180,81 @@
   .user-table th,
   .user-table td {
     padding: 0.75rem 0.5rem;
+  }
+  
+  /* Responsive Architecture Visualization */
+  .architecture-visualization {
+    padding: 1rem;
+  }
+  
+  .beginner-guide,
+  .architecture-diagram-section,
+  .architecture-principles,
+  .learning-resources {
+    padding: 1.5rem;
+  }
+  
+  .diagram-center {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .domain-circle {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .domain-circle span {
+    font-size: 0.85rem;
+  }
+  
+  .domain-circle small {
+    font-size: 0.6rem;
+  }
+  
+  .application-ring {
+    width: 135px;
+    height: 135px;
+  }
+  
+  .application-ring span {
+    font-size: 0.75rem;
+    margin-top: 18px;
+  }
+  
+  .application-ring small {
+    font-size: 0.55rem;
+  }
+  
+  .interface-ring {
+    width: 210px;
+    height: 210px;
+  }
+  
+  .interface-section {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.7rem;
+  }
+  
+  .outer-ring {
+    width: 285px;
+    height: 285px;
+  }
+  
+  .outer-section {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.7rem;
+  }
+  
+  .layer-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .components-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .resources-grid {
+    grid-template-columns: 1fr;
   }
 }
