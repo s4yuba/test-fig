@@ -82,31 +82,75 @@ export const UserManagementView: React.FC<UserManagementViewProps> = ({ controll
 
   return (
     <div className="user-management">
-      <h1>User Management</h1>
+      <div className="user-management-header">
+        <div className="header-content">
+          <h1>User Management System</h1>
+          <div className="stats-bar">
+            <div className="stat">
+              <span className="stat-value">{users.length}</span>
+              <span className="stat-label">Total Users</span>
+            </div>
+            <div className="stat">
+              <span className="stat-value">{users.filter(u => new Date(u.createdAt).toDateString() === new Date().toDateString()).length}</span>
+              <span className="stat-label">Created Today</span>
+            </div>
+          </div>
+        </div>
+        
+        <div className="architecture-flow">
+          <h3>🔄 Data Flow Demonstration</h3>
+          <div className="flow-steps">
+            <div className="flow-step">UI → Controller</div>
+            <div className="flow-arrow">→</div>
+            <div className="flow-step">Use Case</div>
+            <div className="flow-arrow">→</div>
+            <div className="flow-step">Repository</div>
+            <div className="flow-arrow">→</div>
+            <div className="flow-step">Database</div>
+          </div>
+        </div>
+      </div>
       
       {error && (
         <div className="error-message">
-          Error: {error}
+          <strong>⚠️ Error:</strong> {error}
+          <small>This error was caught and handled by the Presentation Layer</small>
         </div>
       )}
 
-      {!showForm && (
-        <button onClick={() => setShowForm(true)}>Create New User</button>
-      )}
+      <div className="action-section">
+        {!showForm && (
+          <button className="create-button" onClick={() => setShowForm(true)}>
+            ➕ Create New User
+          </button>
+        )}
 
-      {showForm && (
-        <UserForm
-          user={editingUser}
-          onSubmit={editingUser ? handleUpdate : handleCreate}
-          onCancel={handleCancel}
+        {showForm && (
+          <div className="form-section">
+            <div className="form-info">
+              <h3>📝 {editingUser ? 'Edit User' : 'Create New User'}</h3>
+              <p>This form demonstrates the Presentation Layer capturing user input and validating it through Domain Value Objects</p>
+            </div>
+            <UserForm
+              user={editingUser}
+              onSubmit={editingUser ? handleUpdate : handleCreate}
+              onCancel={handleCancel}
+            />
+          </div>
+        )}
+      </div>
+
+      <div className="list-section">
+        <div className="list-header">
+          <h3>👥 User Database</h3>
+          <p>Data retrieved through Clean Architecture layers: Controller → Use Case → Repository → Database</p>
+        </div>
+        <UserList
+          users={users}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
         />
-      )}
-
-      <UserList
-        users={users}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-      />
+      </div>
     </div>
   );
 };
