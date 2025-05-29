@@ -59,12 +59,12 @@ export const ArchitectureVisualization: React.FC = () => {
       color: '#e3f2fd',
       isActive: selectedLayer === 'presentation',
       details: {
-        responsibility: 'ユーザーからの入力を受け取り、適切なUse Caseに委譲します。結果をユーザーに表示します。',
-        dependencies: 'Application Layer（Use Cases）にのみ依存',
+        responsibility: 'Receives user input and delegates to appropriate Use Cases. Displays results to users.',
+        dependencies: 'Depends only on Application Layer (Use Cases)',
         examples: [
-          'React コンポーネント（UI）',
-          'コントローラー（入力処理）',
-          'プレゼンター（出力フォーマット）'
+          'React components (UI)',
+          'Controllers (input processing)',
+          'Presenters (output formatting)'
         ]
       }
     },
@@ -96,13 +96,13 @@ export const ArchitectureVisualization: React.FC = () => {
       color: '#f3e5f5',
       isActive: selectedLayer === 'application',
       details: {
-        responsibility: 'アプリケーション固有のビジネスロジックを実装します。複数のDomainオブジェクトを協調させます。',
-        dependencies: 'Domain Layer（エンティティとリポジトリインターフェース）にのみ依存',
+        responsibility: 'Implements application-specific business logic. Coordinates multiple Domain objects.',
+        dependencies: 'Depends only on Domain Layer (entities and repository interfaces)',
         examples: [
-          'ユーザー作成ユースケース',
-          'ユーザー検索ユースケース',
-          'バリデーション処理',
-          'トランザクション管理'
+          'User creation use case',
+          'User search use case',
+          'Validation processing',
+          'Transaction management'
         ]
       }
     },
@@ -134,13 +134,13 @@ export const ArchitectureVisualization: React.FC = () => {
       color: '#e8f5e8',
       isActive: selectedLayer === 'domain',
       details: {
-        responsibility: 'ビジネスの核となるエンティティとルールを定義します。他の層に依存しません。',
-        dependencies: '何にも依存しない（最も独立した層）',
+        responsibility: 'Defines core business entities and rules. Does not depend on other layers.',
+        dependencies: 'No dependencies (most independent layer)',
         examples: [
-          'ユーザーエンティティ',
-          'メールアドレス値オブジェクト',
-          'リポジトリインターフェース',
-          'ドメインサービス'
+          'User entity',
+          'Email address value object',
+          'Repository interfaces',
+          'Domain services'
         ]
       }
     },
@@ -172,13 +172,13 @@ export const ArchitectureVisualization: React.FC = () => {
       color: '#fff3e0',
       isActive: selectedLayer === 'infrastructure',
       details: {
-        responsibility: 'データベース、ファイルシステム、外部APIなどの技術的詳細を実装します。',
-        dependencies: 'Domain Layerのインターフェースを実装',
+        responsibility: 'Implements technical details like databases, file systems, and external APIs.',
+        dependencies: 'Implements Domain Layer interfaces',
         examples: [
-          'データベース実装',
-          'ファイルシステム',
-          '外部API呼び出し',
-          'DI コンテナ'
+          'Database implementation',
+          'File system',
+          'External API calls',
+          'DI container'
         ]
       }
     }
@@ -261,22 +261,22 @@ export const ArchitectureVisualization: React.FC = () => {
         <p>A software design philosophy that separates the elements of a design into ring levels. Click on each layer to explore its details.</p>
       </div>
 
-      {/* 初心者向け説明セクション */}
+      {/* Beginner Guide Section */}
       <div className="beginner-guide">
-        <h3>📚 Clean Architecture とは？</h3>
+        <h3>📚 What is Clean Architecture?</h3>
         <div className="guide-content">
           <p>
-            Clean Architectureは、Robert C. Martin（Uncle Bob）によって提唱されたソフトウェアアーキテクチャです。
-            システムを独立した層に分離し、ビジネスロジックを外部の技術的詳細から保護します。
+            Clean Architecture is a software architecture proposed by Robert C. Martin (Uncle Bob).
+            It separates systems into independent layers and protects business logic from external technical details.
           </p>
           
           <div className="key-benefits">
-            <h4>🎯 主なメリット</h4>
+            <h4>🎯 Key Benefits</h4>
             <ul>
-              <li><strong>保守性:</strong> 各層が独立しているため、変更が他の層に影響しない</li>
-              <li><strong>テスタビリティ:</strong> ビジネスロジックを単体でテストできる</li>
-              <li><strong>再利用性:</strong> UI やデータベースを変更してもコアロジックは再利用可能</li>
-              <li><strong>理解しやすさ:</strong> 責任が明確に分離されている</li>
+              <li><strong>Maintainability:</strong> Each layer is independent, so changes don't affect other layers</li>
+              <li><strong>Testability:</strong> Business logic can be tested in isolation</li>
+              <li><strong>Reusability:</strong> Core logic remains reusable even when UI or database changes</li>
+              <li><strong>Understandability:</strong> Responsibilities are clearly separated</li>
             </ul>
           </div>
 
@@ -285,21 +285,21 @@ export const ArchitectureVisualization: React.FC = () => {
               className="diagram-button"
               onClick={() => setShowDiagram(!showDiagram)}
             >
-              {showDiagram ? '📖 詳細説明を表示' : '🏗️ アーキテクチャ図を表示'}
+              {showDiagram ? '📖 Show Layer Details' : '🏗️ Show Architecture Diagram'}
             </button>
           </div>
         </div>
       </div>
 
-      {/* アーキテクチャ図 */}
+      {/* Architecture Diagram */}
       {showDiagram && (
         <div className="architecture-diagram-section">
-          <h3>🏗️ レイヤー構造図</h3>
+          <h3>🏗️ Layer Structure Diagram</h3>
           <div className="concentric-diagram">
             <div className="diagram-center">
               <div className="domain-circle">
                 <span>Domain</span>
-                <small>エンティティ・ルール</small>
+                <small>Entities & Rules</small>
               </div>
               <div className="application-ring">
                 <span>Application</span>
@@ -330,8 +330,8 @@ export const ArchitectureVisualization: React.FC = () => {
             </div>
           </div>
           <p className="diagram-note">
-            内側の円ほど安定しており、外側は変更されやすい部分です。
-            依存の方向は常に外側から内側に向かいます。
+            Inner circles are more stable, while outer parts are more likely to change.
+            Dependencies always point inward from outer to inner layers.
           </p>
         </div>
       )}
