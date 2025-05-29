@@ -11,6 +11,17 @@ interface ArchitectureLayer {
   examples: string[];
   color: string;
   isActive: boolean;
+  details: {
+    responsibility: string;
+    dependencies: string;
+    examples: string[];
+  };
+}
+
+interface CleanArchitecturePrinciple {
+  title: string;
+  description: string;
+  example: string;
 }
 
 interface ArchitecturePrinciple {
@@ -22,7 +33,11 @@ interface ArchitecturePrinciple {
 
 export const ArchitectureVisualization: React.FC = () => {
   const [selectedLayer, setSelectedLayer] = useState<string | null>(null);
+<<<<<<< HEAD
   const [activeTab, setActiveTab] = useState<'overview' | 'details'>('overview');
+=======
+  const [showDiagram, setShowDiagram] = useState(false);
+>>>>>>> claude/issue-4-20250528_150512
 
   const layers: ArchitectureLayer[] = [
     {
@@ -51,7 +66,16 @@ export const ArchitectureVisualization: React.FC = () => {
         'Presenters formatting business data for display'
       ],
       color: '#e3f2fd',
-      isActive: selectedLayer === 'presentation'
+      isActive: selectedLayer === 'presentation',
+      details: {
+        responsibility: 'ユーザーからの入力を受け取り、適切なUse Caseに委譲します。結果をユーザーに表示します。',
+        dependencies: 'Application Layer（Use Cases）にのみ依存',
+        examples: [
+          'React コンポーネント（UI）',
+          'コントローラー（入力処理）',
+          'プレゼンター（出力フォーマット）'
+        ]
+      }
     },
     {
       id: 'application',
@@ -79,7 +103,17 @@ export const ArchitectureVisualization: React.FC = () => {
         'Authentication and authorization flows'
       ],
       color: '#f3e5f5',
-      isActive: selectedLayer === 'application'
+      isActive: selectedLayer === 'application',
+      details: {
+        responsibility: 'アプリケーション固有のビジネスロジックを実装します。複数のDomainオブジェクトを協調させます。',
+        dependencies: 'Domain Layer（エンティティとリポジトリインターフェース）にのみ依存',
+        examples: [
+          'ユーザー作成ユースケース',
+          'ユーザー検索ユースケース',
+          'バリデーション処理',
+          'トランザクション管理'
+        ]
+      }
     },
     {
       id: 'domain',
@@ -107,7 +141,17 @@ export const ArchitectureVisualization: React.FC = () => {
         'Domain events for business state changes'
       ],
       color: '#e8f5e8',
-      isActive: selectedLayer === 'domain'
+      isActive: selectedLayer === 'domain',
+      details: {
+        responsibility: 'ビジネスの核となるエンティティとルールを定義します。他の層に依存しません。',
+        dependencies: '何にも依存しない（最も独立した層）',
+        examples: [
+          'ユーザーエンティティ',
+          'メールアドレス値オブジェクト',
+          'リポジトリインターフェース',
+          'ドメインサービス'
+        ]
+      }
     },
     {
       id: 'infrastructure',
@@ -135,7 +179,40 @@ export const ArchitectureVisualization: React.FC = () => {
         'Email service integrations'
       ],
       color: '#fff3e0',
-      isActive: selectedLayer === 'infrastructure'
+      isActive: selectedLayer === 'infrastructure',
+      details: {
+        responsibility: 'データベース、ファイルシステム、外部APIなどの技術的詳細を実装します。',
+        dependencies: 'Domain Layerのインターフェースを実装',
+        examples: [
+          'データベース実装',
+          'ファイルシステム',
+          '外部API呼び出し',
+          'DI コンテナ'
+        ]
+      }
+    }
+  ];
+
+  const principles: CleanArchitecturePrinciple[] = [
+    {
+      title: '依存性逆転の原則',
+      description: '高レベルモジュールは低レベルモジュールに依存せず、両方とも抽象に依存する',
+      example: 'Use CaseはRepositoryインターフェースに依存し、具体的なDB実装には依存しない'
+    },
+    {
+      title: '単一責任の原則',
+      description: '各層は単一の責任を持ち、変更する理由も一つである',
+      example: 'Domain層はビジネスロジックのみ、Infrastructure層は技術的詳細のみ'
+    },
+    {
+      title: 'テスタビリティ',
+      description: 'ビジネスロジックが外部依存から分離されているため、単体テストが容易',
+      example: 'Use CaseはモックのRepositoryを使ってテストできる'
+    },
+    {
+      title: '独立性',
+      description: 'UI、データベース、フレームワークは交換可能',
+      example: 'ReactをVueに、MySQLをPostgreSQLに変更してもDomain層は影響を受けない'
     }
   ];
 
@@ -215,6 +292,81 @@ export const ArchitectureVisualization: React.FC = () => {
         <h2>🏗️ Clean Architecture Overview</h2>
         <p>A software design philosophy that separates the elements of a design into ring levels. Click on each layer to explore its details.</p>
       </div>
+
+      {/* 初心者向け説明セクション */}
+      <div className="beginner-guide">
+        <h3>📚 Clean Architecture とは？</h3>
+        <div className="guide-content">
+          <p>
+            Clean Architectureは、Robert C. Martin（Uncle Bob）によって提唱されたソフトウェアアーキテクチャです。
+            システムを独立した層に分離し、ビジネスロジックを外部の技術的詳細から保護します。
+          </p>
+          
+          <div className="key-benefits">
+            <h4>🎯 主なメリット</h4>
+            <ul>
+              <li><strong>保守性:</strong> 各層が独立しているため、変更が他の層に影響しない</li>
+              <li><strong>テスタビリティ:</strong> ビジネスロジックを単体でテストできる</li>
+              <li><strong>再利用性:</strong> UI やデータベースを変更してもコアロジックは再利用可能</li>
+              <li><strong>理解しやすさ:</strong> 責任が明確に分離されている</li>
+            </ul>
+          </div>
+
+          <div className="diagram-toggle">
+            <button 
+              className="diagram-button"
+              onClick={() => setShowDiagram(!showDiagram)}
+            >
+              {showDiagram ? '📖 詳細説明を表示' : '🏗️ アーキテクチャ図を表示'}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* アーキテクチャ図 */}
+      {showDiagram && (
+        <div className="architecture-diagram-section">
+          <h3>🏗️ レイヤー構造図</h3>
+          <div className="concentric-diagram">
+            <div className="diagram-center">
+              <div className="domain-circle">
+                <span>Domain</span>
+                <small>エンティティ・ルール</small>
+              </div>
+              <div className="application-ring">
+                <span>Application</span>
+                <small>Use Cases</small>
+              </div>
+              <div className="interface-ring">
+                <div className="interface-section">
+                  <span>Controllers</span>
+                </div>
+                <div className="interface-section">
+                  <span>Presenters</span>
+                </div>
+                <div className="interface-section">
+                  <span>Gateways</span>
+                </div>
+              </div>
+              <div className="outer-ring">
+                <div className="outer-section">
+                  <span>UI</span>
+                </div>
+                <div className="outer-section">
+                  <span>Database</span>
+                </div>
+                <div className="outer-section">
+                  <span>External APIs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p className="diagram-note">
+            内側の円ほど安定しており、外側は変更されやすい部分です。
+            依存の方向は常に外側から内側に向かいます。
+          </p>
+        </div>
+      )}
       
       <div className="architecture-diagram">
         {layers.map((layer) => (
@@ -246,6 +398,7 @@ export const ArchitectureVisualization: React.FC = () => {
                   <h4>📦 Components in This Layer:</h4>
                   <div className="component-list">
                     {layer.components.map(component => (
+<<<<<<< HEAD
                       <span key={component} className="component-tag">{component}</span>
                     ))}
                   </div>
@@ -270,6 +423,9 @@ export const ArchitectureVisualization: React.FC = () => {
                   <ul>
                     {layer.examples.map((example, index) => (
                       <li key={index}>{example}</li>
+=======
+                      <li key={component}><code>{component}</code></li>
+>>>>>>> claude/issue-4-20250528_150512
                     ))}
                   </ul>
                 </div>
