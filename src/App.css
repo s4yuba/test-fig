@@ -603,6 +603,44 @@
   padding: 2rem;
 }
 
+/* Architecture Tabs */
+.architecture-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  padding: 0.75rem 2rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: white;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  border-color: #667eea;
+  color: #667eea;
+  transform: translateY(-1px);
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: #667eea;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.tab-content {
+  min-height: 500px;
+}
+
+/* Architecture Overview */
 .architecture-title {
   text-align: center;
   margin-bottom: 2rem;
@@ -617,6 +655,7 @@
 .architecture-title p {
   color: #64748b;
   margin: 0;
+  font-size: 1.1rem;
 }
 
 .architecture-diagram {
@@ -670,60 +709,236 @@
 }
 
 .layer-description {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
   color: #4b5563;
   line-height: 1.6;
+  font-size: 1.05rem;
+  font-weight: 500;
 }
 
-.layer-components h4 {
-  margin: 0 0 0.5rem 0;
+.layer-section {
+  margin-bottom: 1.5rem;
+}
+
+.layer-section h4 {
+  margin: 0 0 0.75rem 0;
   color: #374151;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
-.layer-components ul {
+.layer-section ul {
   margin: 0;
   padding-left: 1.5rem;
   color: #6b7280;
 }
 
-.layer-components li {
-  margin: 0.25rem 0;
+.layer-section li {
+  margin: 0.5rem 0;
+  line-height: 1.5;
 }
 
-.architecture-principles {
-  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+.component-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.component-tag {
+  background: rgba(102, 126, 234, 0.1);
+  color: #4c1d95;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.dependency-info {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin: 0;
+  color: #374151;
+  font-style: italic;
+}
+
+/* Architecture Details */
+.architecture-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.principles-section, .mistakes-section, .learning-resources {
+  background: rgba(255, 255, 255, 0.8);
   padding: 2rem;
   border-radius: 15px;
-  border: 1px solid #bae6fd;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-.architecture-principles h3 {
-  margin: 0 0 1.5rem 0;
-  color: #0c4a6e;
+.principles-section h2, .mistakes-section h2, .learning-resources h2 {
+  margin: 0 0 1rem 0;
+  color: #1e293b;
+  font-size: 1.8rem;
   text-align: center;
-  font-size: 1.5rem;
+}
+
+.principles-section p, .mistakes-section p {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
 }
 
 .principles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
-.principle {
+.principle-card {
   background: white;
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0f2fe;
+  transition: transform 0.3s ease;
 }
 
-.principle strong {
+.principle-card:hover {
+  transform: translateY(-3px);
+}
+
+.principle-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.principle-icon {
+  font-size: 2rem;
+}
+
+.principle-header h3 {
+  margin: 0;
   color: #0c4a6e;
-  display: block;
-  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.principle-description {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.principle-details h4 {
+  margin: 0 0 0.75rem 0;
+  color: #374151;
   font-size: 1rem;
+}
+
+.principle-details ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #6b7280;
+}
+
+.principle-details li {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+/* Mistakes Section */
+.mistakes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.mistake-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.mistake-problem {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  padding: 1.5rem;
+  border-bottom: 1px solid #fca5a5;
+}
+
+.mistake-problem strong {
+  color: #dc2626;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.mistake-problem p {
+  margin: 0;
+  color: #7f1d1d;
+  line-height: 1.5;
+}
+
+.mistake-solution {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  padding: 1.5rem;
+}
+
+.mistake-solution strong {
+  color: #047857;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.mistake-solution p {
+  margin: 0;
+  color: #064e3b;
+  line-height: 1.5;
+}
+
+/* Learning Resources */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.resource-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0f2fe;
+  transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-3px);
+}
+
+.resource-card h3 {
+  margin: 0 0 1rem 0;
+  color: #0c4a6e;
+  font-size: 1.2rem;
+}
+
+.resource-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #4b5563;
+}
+
+.resource-card li {
+  margin: 0.5rem 0;
+  line-height: 1.5;
 }
 
 /* Footer */
@@ -800,5 +1015,43 @@
   .user-table th,
   .user-table td {
     padding: 0.75rem 0.5rem;
+  }
+  
+  /* Architecture Mobile Responsive */
+  .architecture-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tab-button {
+    width: 250px;
+  }
+  
+  .principles-grid,
+  .mistakes-grid,
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .component-list {
+    flex-direction: column;
+  }
+  
+  .component-tag {
+    text-align: center;
+  }
+  
+  .mistake-card {
+    margin-bottom: 1rem;
+  }
+  
+  .architecture-details {
+    gap: 2rem;
+  }
+  
+  .principles-section,
+  .mistakes-section,
+  .learning-resources {
+    padding: 1.5rem;
   }
 }
