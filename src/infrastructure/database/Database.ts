@@ -23,7 +23,8 @@ export class InMemoryDatabase implements DatabaseConnection {
     if (!this.connected) {
       throw new Error('Database not connected');
     }
-    return Array.from(this.data.get(collection) || new Map()).map(([_, value]) => value);
+    const collectionData = this.data.get(collection) || new Map<string, T>();
+    return Array.from(collectionData.values());
   }
 
   getById<T>(collection: string, id: string): T | null {
