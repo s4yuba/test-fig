@@ -33,11 +33,8 @@ interface ArchitecturePrinciple {
 
 export const ArchitectureVisualization: React.FC = () => {
   const [selectedLayer, setSelectedLayer] = useState<string | null>(null);
-<<<<<<< HEAD
   const [activeTab, setActiveTab] = useState<'overview' | 'details'>('overview');
-=======
   const [showDiagram, setShowDiagram] = useState(false);
->>>>>>> claude/issue-4-20250528_150512
 
   const layers: ArchitectureLayer[] = [
     {
