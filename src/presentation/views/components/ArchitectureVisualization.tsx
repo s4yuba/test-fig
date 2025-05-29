@@ -18,12 +18,6 @@ interface ArchitectureLayer {
   };
 }
 
-interface CleanArchitecturePrinciple {
-  title: string;
-  description: string;
-  example: string;
-}
-
 interface ArchitecturePrinciple {
   title: string;
   description: string;
@@ -187,29 +181,6 @@ export const ArchitectureVisualization: React.FC = () => {
           'DI コンテナ'
         ]
       }
-    }
-  ];
-
-  const principles: CleanArchitecturePrinciple[] = [
-    {
-      title: '依存性逆転の原則',
-      description: '高レベルモジュールは低レベルモジュールに依存せず、両方とも抽象に依存する',
-      example: 'Use CaseはRepositoryインターフェースに依存し、具体的なDB実装には依存しない'
-    },
-    {
-      title: '単一責任の原則',
-      description: '各層は単一の責任を持ち、変更する理由も一つである',
-      example: 'Domain層はビジネスロジックのみ、Infrastructure層は技術的詳細のみ'
-    },
-    {
-      title: 'テスタビリティ',
-      description: 'ビジネスロジックが外部依存から分離されているため、単体テストが容易',
-      example: 'Use CaseはモックのRepositoryを使ってテストできる'
-    },
-    {
-      title: '独立性',
-      description: 'UI、データベース、フレームワークは交換可能',
-      example: 'ReactをVueに、MySQLをPostgreSQLに変更してもDomain層は影響を受けない'
     }
   ];
 
@@ -395,7 +366,6 @@ export const ArchitectureVisualization: React.FC = () => {
                   <h4>📦 Components in This Layer:</h4>
                   <div className="component-list">
                     {layer.components.map(component => (
-<<<<<<< HEAD
                       <span key={component} className="component-tag">{component}</span>
                     ))}
                   </div>
@@ -420,9 +390,6 @@ export const ArchitectureVisualization: React.FC = () => {
                   <ul>
                     {layer.examples.map((example, index) => (
                       <li key={index}>{example}</li>
-=======
-                      <li key={component}><code>{component}</code></li>
->>>>>>> claude/issue-4-20250528_150512
                     ))}
                   </ul>
                 </div>
