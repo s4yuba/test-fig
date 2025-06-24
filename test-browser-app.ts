@@ -30,9 +30,17 @@ async function testLocalApp() {
       await page.type('input[placeholder="Email"]', 'test@example.com');
       
       console.log('Clicking Add User button...');
-      const addButton = await page.$('button:has-text("Add User")');
-      if (addButton) {
-        await addButton.click();
+      // Find and click the button containing "Add User" text
+      const clicked = await page.evaluate(() => {
+        const buttons = Array.from(document.querySelectorAll('button'));
+        const addButton = buttons.find(button => button.textContent?.includes('Add User'));
+        if (addButton) {
+          addButton.click();
+          return true;
+        }
+        return false;
+      });
+      if (clicked) {
         console.log('User added!');
       }
     }
