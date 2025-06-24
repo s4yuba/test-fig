@@ -71,3 +71,7 @@ src/
 ## License
 
 This project is open source and available under the MIT License.
+
+## Integration
+
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/s4yuba/test-fig?utm_source=oss&utm_medium=github&utm_campaign=s4yuba%2Ftest-fig&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
