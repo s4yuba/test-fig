@@ -9,13 +9,16 @@
     "preview": "vite preview",
     "test": "jest",
     "lint": "eslint src --ext .ts,.tsx",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:puppeteer": "tsx src/test-puppeteer.ts",
+    "test:app": "tsx test-browser-app.ts"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@modelcontextprotocol/server-puppeteer": "^2025.5.12",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
@@ -24,6 +27,8 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "puppeteer": "^24.9.0",
+    "tsx": "^4.19.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   }
